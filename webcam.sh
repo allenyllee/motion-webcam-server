@@ -3,25 +3,25 @@
 ##############
 # linux - How to execute a shellscript when I plug-in a USB-device - Unix & Linux Stack Exchange
 # https://unix.stackexchange.com/questions/65891/how-to-execute-a-shellscript-when-i-plug-in-a-usb-device
-# 
+#
 # With env, you can see what environment is set from udev and with file, you will discover the file type.
 # The concrete attributes for your device can be discovered with lsusb
 ##############
 # ubuntu - How to identify USB webcam by serial number from the Linux command line - Super User
 # https://superuser.com/questions/902012/how-to-identify-usb-webcam-by-serial-number-from-the-linux-command-line
-# 
+#
 # It is possible to identify all cameras. The command
 # $ sudo lsusb -v -d 046d:082d | grep -i serial
 # iSerial 1 05C6D16F
-# 
+#
 # Now the command
-# 
+#
 # $ sudo udevadm info --query=all /dev/video1 | grep 'VENDOR_ID\|MODEL_ID\|SERIAL_SHORT'
 # E: ID_MODEL_ID=082d
 # E: ID_SERIAL_SHORT=05C6D16F
 # E: ID_VENDOR_ID=046d
-# 
-# returns the appropriate codes for this particular camera. 
+#
+# returns the appropriate codes for this particular camera.
 # Trial and error with all /dev/videoX devices allows pigeon-holing all of them.
 ##############
 
@@ -31,12 +31,12 @@ echo '========== begin of udev events ===============' >>$LOGPATH
 ### echo '========== print environment variables ===========' >>$LOGPATH
 ### env >>$LOGPATH
 ### echo '' >>$LOGPATH
-### 
+###
 ### echo '========== device path =============' >>$LOGPATH
 ### # check device file type
 ### file "/sys${DEVPATH}" >>$LOGPATH
 ### echo '' >>$LOGPATH
-### 
+###
 ### echo '========== do somthing =============' >>$LOGPATH
 
 # if $ACTION is "add" and /sys$DEVPATH is a directory
@@ -67,7 +67,7 @@ if [ "${ACTION}" = add -a -d "/sys${DEVPATH}" ]; then
 
         # Udev rule to run a script after plugging in USB device on Ubuntu Linux operating system | TechyTalk
         # http://www.techytalk.info/udev-rule-to-run-script-after-plugging-in-usb-device-on-ubuntu-linux-operating-system/
-        # 
+        #
         # write into /var/log/syslog
         # check it with cmd: tail -f /var/log/syslog
         logger "$PRODUCT_NAME is starting..."
@@ -87,9 +87,9 @@ if [ "${ACTION}" = add -a -d "/sys${DEVPATH}" ]; then
     fi
 fi
 
-### 
+###
 ### echo '' >>$LOGPATH
-### 
+###
 ### echo '========== end of this call ===============' >>$LOGPATH
 ### echo '' >>$LOGPATH
 ### echo '' >>$LOGPATH

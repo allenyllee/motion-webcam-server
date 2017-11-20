@@ -26,7 +26,6 @@ ffmpeg_output_movies off
 # Recommended to use absolute path. (Default: current working directory)
 target_dir /tmp/motion
 
-
 # Maximum framerate for stream streams (default: 1)
 stream_maxrate 30
 

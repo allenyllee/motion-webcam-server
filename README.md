@@ -4,6 +4,10 @@ use motion as a webcam server in docker
 
 [motion's offical github](https://github.com/Motion-Project/motion)
 
+## Usage
+
+browser open [http://localhost:8081](http://localhost:8081)
+
 ## my motion.conf
 
 ```text

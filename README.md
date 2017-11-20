@@ -1,7 +1,9 @@
 # motion-webcam-server
+
 use motion as a webcam server in docker
 
 ## my motion.conf
+
 videodevice /dev/video1
 width 640
 height 480

@@ -6,7 +6,15 @@ use motion as a webcam server in docker
 
 ## Usage
 
-browser open [http://localhost:8081](http://localhost:8081)
+### For Camera0
+
+run ``./run.sh motion0 8081 /dev/video0``
+and open [http://localhost:8081](http://localhost:8081)
+
+### For Camera1
+
+run ``./run.sh motion1 8082 /dev/video1``
+and open [http://localhost:8082](http://localhost:8082)
 
 ## my motion.conf
 
